@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Seba — Your Need, Our Service</title>
+<style>
+:root{--green:#078b5b;--dark:#07384b;--light:#f4faf8;--orange:#f5a623;--text:#173042}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;color:var(--text);background:#fff}
+a{text-decoration:none;color:inherit}.nav{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid #e7eeee;background:white;position:sticky;top:0;z-index:10}
+.logo{font-size:28px;font-weight:800;color:var(--green)}.logo span{color:var(--dark)}.tag{font-size:11px;color:#557;display:block;margin-top:-3px}
+.links{display:flex;gap:24px;font-size:14px}.links a:hover{color:var(--green)}.actions{display:flex;gap:8px}.btn{border:1px solid var(--green);padding:10px 17px;border-radius:8px;font-weight:700;cursor:pointer;background:white;color:var(--green)}.btn.primary{background:var(--green);color:white}
+.hero{background:linear-gradient(120deg,#063c4c,#087c5a);color:#fff;padding:65px 6% 55px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;right:-100px;top:-120px;width:450px;height:450px;border-radius:50%;background:rgba(255,255,255,.08)}
+.hero h1{font-size:54px;margin:0 0 8px}.hero h1 b{color:#35d995}.hero p{font-size:19px;max-width:650px;line-height:1.7;margin:0 0 25px}.search{background:white;padding:8px;border-radius:13px;display:flex;max-width:850px;box-shadow:0 10px 30px #002d3b55;position:relative;z-index:2}.search input,.search select{border:0;outline:0;padding:14px;font-size:15px;flex:1;min-width:0}.search select{max-width:190px;border-left:1px solid #ddd}.search button{background:var(--green);color:white;border:0;border-radius:9px;padding:0 28px;font-weight:700;font-size:15px;cursor:pointer}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:22px 6%;box-shadow:0 2px 10px #00000008}.trust div{text-align:center;padding:10px;border-right:1px solid #e8eeee}.trust div:last-child{border:0}.trust strong{display:block;margin-bottom:5px}.trust small{color:#65757d}
+section{padding:42px 6%}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.section-title h2{margin:0;font-size:26px}.section-title a{color:var(--green);font-size:14px}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}.cat{border:1px solid #e4eeee;border-radius:12px;padding:22px 10px;text-align:center;background:white;transition:.2s;cursor:pointer}.cat:hover{transform:translateY(-3px);box-shadow:0 8px 22px #0000000d}.icon{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;background:#e6f6ef;font-size:25px}.cat b{font-size:14px}.cat small{display:block;color:#78878d;margin-top:6px}
+.providers{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{border:1px solid #e5eeee;border-radius:14px;overflow:hidden;background:white;box-shadow:0 5px 18px #00000008}.photo{height:150px;background:linear-gradient(135deg,#dff4ec,#b9d8d2);display:grid;place-items:center;font-size:54px}.card-body{padding:15px}.rating{color:#e89b00;font-size:13px}.card h3{margin:7px 0 4px;font-size:17px}.meta{font-size:13px;color:#6c7c83;margin:5px 0 14px}.card-actions{display:flex;gap:8px}.card-actions .btn{padding:8px 10px;font-size:12px;flex:1}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:20px}.cta-box{padding:30px;border-radius:15px;color:white;background:linear-gradient(120deg,#078b5b,#05a76e)}.cta-box.blue{background:linear-gradient(120deg,#075b84,#0a83ae)}.cta-box h2{margin:0 0 10px}.cta-box p{line-height:1.6}.cta-box .btn{background:white;border-color:white;color:var(--green)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.step{padding:20px;background:var(--light);border-radius:12px}.num{width:36px;height:36px;border-radius:50%;background:var(--green);color:white;display:grid;place-items:center;font-weight:800}.step h3{font-size:16px;margin-bottom:6px}.step p{font-size:13px;color:#687980;line-height:1.5}
+footer{background:#052f40;color:#d9e7eb;padding:35px 6%;margin-top:20px}.footer-row{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.footer-logo{font-size:25px;font-weight:800;color:#fff}.footer-links{display:flex;gap:18px;flex-wrap:wrap;font-size:13px}.copy{border-top:1px solid #ffffff22;margin-top:25px;padding-top:18px;font-size:12px;color:#a9c0c7}
+.no-results{text-align:center;padding:25px;color:#65757d;display:none}
+@media(max-width:900px){.links{display:none}.categories{grid-template-columns:repeat(3,1fr)}.providers{grid-template-columns:repeat(2,1fr)}.trust{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.nav{height:62px}.hero{padding:40px 5%}.hero h1{font-size:40px}.hero p{font-size:16px}.search{display:block}.search input,.search select{width:100%;max-width:none;border:0;border-bottom:1px solid #eee}.search button{width:100%;padding:13px;margin-top:6px}.trust{grid-template-columns:1fr 1fr;padding:15px 4%}.trust div{border:0}.categories{grid-template-columns:repeat(2,1fr)}.providers{grid-template-columns:1fr}.cta{grid-template-columns:1fr}.steps{grid-template-columns:1fr}section{padding:30px 5%}.actions .btn:first-child{display:none}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div><div class="logo">My <span>Seba</span></div><span class="tag">Your Need, Our Service</span></div>
+  <div class="links">
+    <a href="#">Home</a><a href="#categories">Categories</a><a href="#providers">Providers</a><a href="#request">Post a Request</a><a href="#provider">Become a Provider</a>
+  </div>
+  <div class="actions"><button class="btn">Login</button><button class="btn primary">Sign Up</button></div>
+</nav>
+
+<header class="hero">
+  <h1>My <b>Seba</b></h1>
+  <p>আপনার প্রয়োজন, সঠিক সেবা এক জায়গায়।<br>বাড়ির কাজ থেকে পেশাদার সেবা—সহজে খুঁজুন, যোগাযোগ করুন।</p>
+  <div class="search">
+    <input id="searchInput" placeholder="আপনি কী সেবা খুঁজছেন?">
+    <select id="location"><option>Riyadh</option><option>Jeddah</option><option>Dammam</option><option>Makkah</option><option>Medina</option></select>
+    <button onclick="searchServices()">🔍 Search</button>
+  </div>
+</header>
+
+<div class="trust">
+  <div><strong>🛡️ Trusted Providers</strong><small>Verified professionals</small></div>
+  <div><strong>⚡ Quick & Easy</strong><small>Find services in minutes</small></div>
+  <div><strong>🔒 Secure</strong><small>Safe communication</small></div>
+  <div><strong>🎧 24/7 Support</strong><small>We are here to help</small></div>
+</div>
+
+<section id="categories">
+  <div class="section-title"><h2>Popular Categories</h2><a href="#">View All →</a></div>
+  <div class="categories">
+    <div class="cat" data-name="Home Repair"><div class="icon">🔧</div><b>Home Repair</b><small>128+ Services</small></div>
+    <div class="cat" data-name="Cleaning"><div class="icon">🧹</div><b>Cleaning</b><small>95+ Services</small></div>
+    <div class="cat" data-name="Car Service"><div class="icon">🚗</div><b>Car Service</b><small>76+ Services</small></div>
+    <div class="cat" data-name="Computer"><div class="icon">💻</div><b>Computer</b><small>64+ Services</small></div>
+    <div class="cat" data-name="Mobile"><div class="icon">📱</div><b>Mobile Service</b><small>58+ Services</small></div>
+    <div class="cat" data-name="Design"><div class="icon">🎨</div><b>Graphic Design</b><small>48+ Services</small></div>
+    <div class="cat" data-name="Tutor"><div class="icon">🎓</div><b>Tutor / Education</b><small>72+ Services</small></div>
+    <div class="cat" data-name="Photography"><div class="icon">📷</div><b>Photography</b><small>41+ Services</small></div>
+    <div class="cat" data-name="Catering"><div class="icon">👨‍🍳</div><b>Catering / Cooking</b><small>36+ Services</small></div>
+    <div class="cat" data-name="Delivery"><div class="icon">🚚</div><b>Delivery</b><small>52+ Services</small></div>
+    <div class="cat" data-name="Beauty"><div class="icon">💇</div><b>Beauty & Salon</b><small>44+ Services</small></div>
+    <div class="cat" data-name="More"><div class="icon">•••</div><b>More Services</b><small>100+ Services</small></div>
+  </div>
+</section>
+
+<section id="providers">
+  <div class="section-title"><h2>Top Service Providers</h2><a href="#">View All →</a></div>
+  <div class="providers" id="providerGrid">
+    <div class="card" data-service="plumber home repair"><div class="photo">🔧</div><div class="card-body"><div class="rating">★★★★★ 4.9</div><h3>Abdul Rahman</h3><div class="meta">Plumber & Home Repair<br>📍 Riyadh, Saudi Arabia</div><div class="card-actions"><button class="btn">📞 Call</button><button class="btn primary">WhatsApp</button></div></div></div>
+    <div class="card" data-service="cleaning"><div class="photo">🧹</div><div class="card-body"><div class="rating">★★★★★ 4.8</div><h3>Ayesha Cleaning</h3><div class="meta">Home & Office Cleaning<br>📍 Jeddah, Saudi Arabia</div><div class="card-actions"><button class="btn">📞 Call</button><button class="btn primary">WhatsApp</button></div></div></div>
+    <div class="card" data-service="car service repair"><div class="photo">🚗</div><div class="card-body"><div class="rating">★★★★★ 4.9</div><h3>Fahad Auto Service</h3><div class="meta">Car Repair & Maintenance<br>📍 Riyadh, Saudi Arabia</div><div class="card-actions"><button class="btn">📞 Call</button><button class="btn primary">WhatsApp</button></div></div></div>
+    <div class="card" data-service="graphic design computer"><div class="photo">🎨</div><div class="card-body"><div class="rating">★★★★★ 4.9</div><h3>Rifat Hasan</h3><div class="meta">Graphic Designer<br>📍 Jeddah, Saudi Arabia</div><div class="card-actions"><button class="btn">📞 Call</button><button class="btn primary">WhatsApp</button></div></div></div>
+  </div>
+  <div class="no-results" id="noResults">এই সেবার জন্য কোনো provider পাওয়া যায়নি। অন্য keyword দিয়ে চেষ্টা করুন।</div>
+</section>
+
+<section id="request">
+  <div class="cta">
+    <div class="cta-box" id="provider"><h2>আপনার সেবা দিন</h2><p>আপনার skill ও service My Seba-তে যুক্ত করুন এবং নতুন customer-এর কাছে পৌঁছান।</p><button class="btn">Become a Provider →</button></div>
+    <div class="cta-box blue"><h2>সেবা খুঁজুন</h2><p>আপনার প্রয়োজনীয় service request পোস্ট করুন এবং provider-এর সাথে যোগাযোগ করুন।</p><button class="btn">Post a Service Request →</button></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title"><h2>How My Seba Works</h2></div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h3>সেবা খুঁজুন</h3><p>আপনার প্রয়োজনীয় service বা category নির্বাচন করুন।</p></div>
+    <div class="step"><div class="num">2</div><h3>Provider দেখুন</h3><p>প্রোফাইল, rating এবং location দেখে provider বাছাই করুন।</p></div>
+    <div class="step"><div class="num">3</div><h3>যোগাযোগ করুন</h3><p>Call বা WhatsApp-এর মাধ্যমে সরাসরি যোগাযোগ করুন।</p></div>
+    <div class="step"><div class="num">4</div><h3>সেবা নিন</h3><p>আপনার প্রয়োজনীয় কাজ সম্পন্ন করুন এবং review দিন।</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-row">
+    <div><div class="footer-logo">My Seba</div><small>Your Need, Our Service</small></div>
+    <div class="footer-links"><a href="#">Home</a><a href="#">Categories</a><a href="#">Providers</a><a href="#">About Us</a><a href="#">Contact</a></div>
+    <div>🇸🇦 العربية &nbsp; 🇬🇧 English &nbsp; 🇧🇩 বাংলা</div>
+  </div>
+  <div class="copy">© 2026 My Seba. All rights reserved.</div>
+</footer>
+
+<script>
+function searchServices(){
+  const q=document.getElementById('searchInput').value.trim().toLowerCase();
+  const cards=[...document.querySelectorAll('#providerGrid .card')];
+  let count=0;
+  cards.forEach(c=>{const ok=!q||c.dataset.service.includes(q);c.style.display=ok?'block':'none';if(ok)count++;});
+  document.getElementById('noResults').style.display=count?'none':'block';
+  document.getElementById('providers').scrollIntoView({behavior:'smooth'});
+}
+document.querySelectorAll('.cat').forEach(cat=>{
+  cat.addEventListener('click',()=>{document.getElementById('searchInput').value=cat.dataset.name;searchServices();});
+});
+</script>
+</body>
+</html>
