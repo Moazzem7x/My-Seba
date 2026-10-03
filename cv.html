@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My-Seba | Upload CV</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7f6;
+      color: #222;
+    }
+
+    header {
+      background: #0b7a4b;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    header h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 15px;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .form-card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    }
+
+    .form-card h2 {
+      color: #0b7a4b;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .intro {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 7px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      background: white;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #0b7a4b;
+    }
+
+    .file-box {
+      border: 2px dashed #0b7a4b;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      background: #f8fffb;
+    }
+
+    .file-box input {
+      border: none;
+      padding: 10px 0;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 22px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #0b7a4b;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #09663f;
+    }
+
+    .message {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 8px;
+      background: #e8f8ef;
+      color: #0b7a4b;
+      text-align: center;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      color: #0b7a4b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 20px;
+      background: #111;
+      color: #ddd;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>📄 My-Seba</h1>
+    <p>Upload your CV and find opportunities</p>
+  </header>
+
+  <div class="container">
+
+    <div class="form-card">
+
+      <h2>Upload Your CV</h2>
+
+      <p class="intro">
+        Fill in your information and upload your CV.
+      </p>
+
+      <form id="cvForm">
+
+        <label for="name">👤 Full Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your full name"
+          required
+        >
+
+        <label for="email">📧 Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        >
+
+        <label for="phone">📱 Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Enter your phone number"
+          required
+        >
+
+        <label for="job">💼 Job Position</label>
+        <select id="job" required>
+          <option value="">Select job position</option>
+          <option>Electrician</option>
+          <option>Plumber</option>
+          <option>Driver</option>
+          <option>Cleaner</option>
+          <option>Computer Technician</option>
+          <option>Graphic Designer</option>
+          <option>Teacher / Tutor</option>
+          <option>Photographer</option>
+          <option>Delivery Worker</option>
+          <option>Other</option>
+        </select>
+
+        <label for="cv">📄 Select CV</label>
+
+        <div class="file-box">
+          <p>Choose your CV file</p>
+
+          <input
+            type="file"
+            id="cv"
+            accept=".pdf,.doc,.docx"
+            required
+          >
+
+          <small>PDF, DOC or DOCX</small>
+        </div>
+
+        <label for="description">📝 Short Description</label>
+
+        <textarea
+          id="description"
+          placeholder="Tell us briefly about your skills and experience..."
+        ></textarea>
+
+        <button type="submit" class="submit-btn">
+          📤 Submit CV
+        </button>
+
+        <div class="message" id="message">
+          ✅ Your CV information is ready to be submitted.
+        </div>
+
+      </form>
+
+      <a href="index.html" class="back">
+        🏠 Back to Home
+      </a>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 My-Seba — All Rights Reserved
+  </footer>
+
+  <script>
+    document.getElementById("cvForm").addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const file = document.getElementById("cv").files[0];
+
+      if (!file) {
+        alert("Please select your CV.");
+        return;
+      }
+
+      const maxSize = 5 * 1024 * 1024;
+
+      if (file.size > maxSize) {
+        alert("CV file must be smaller than 5 MB.");
+        return;
+      }
+
+      document.getElementById("message").style.display = "block";
+
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+</body>
+          </html>
