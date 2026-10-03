@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My-Seba | Services</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #222;
+    }
+
+    header {
+      background: #0b7a4b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 15px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px 15px;
+    }
+
+    .top-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .search {
+      flex: 1;
+      min-width: 220px;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .location {
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px 12px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .service-card h3 {
+      color: #0b7a4b;
+      margin-bottom: 7px;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #0b7a4b;
+      color: white;
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .home {
+      display: block;
+      text-align: center;
+      margin: 30px 0 10px;
+    }
+
+    footer {
+      text-align: center;
+      background: #111;
+      color: #ddd;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🛠️ My-Seba Services</h1>
+    <p>Find trusted services near you</p>
+  </header>
+
+  <div class="container">
+
+    <div class="top-bar">
+      <input
+        class="search"
+        type="text"
+        placeholder="🔍 Search for a service..."
+        onkeyup="searchServices()"
+        id="searchBox"
+      >
+
+      <select class="location">
+        <option>📍 Select Location</option>
+        <option>Jeddah</option>
+        <option>Riyadh</option>
+        <option>Dammam</option>
+        <option>Makkah</option>
+        <option>Medina</option>
+      </select>
+    </div>
+
+    <div class="services" id="serviceList">
+
+      <div class="service-card">
+        <div class="icon">🔧</div>
+        <h3>Home Repair</h3>
+        <p>Plumbing, electrical and repair services.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🧹</div>
+        <h3>Cleaning</h3>
+        <p>Home and office cleaning services.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🚗</div>
+        <h3>Car Service</h3>
+        <p>Car repair and maintenance services.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">💻</div>
+        <h3>Computer</h3>
+        <p>Computer repair and technical support.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📱</div>
+        <h3>Mobile Service</h3>
+        <p>Mobile phone repair and support.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🎨</div>
+        <h3>Graphic Design</h3>
+        <p>Logo, poster and design services.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🎓</div>
+        <h3>Tutor</h3>
+        <p>Find tutors for different subjects.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📷</div>
+        <h3>Photography</h3>
+        <p>Photography and video services.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🚚</div>
+        <h3>Delivery</h3>
+        <p>Fast delivery and transportation.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">💇</div>
+        <h3>Beauty & Salon</h3>
+        <p>Beauty, hair and salon services.</p>
+        <a href="#" class="btn">Find Provider</a>
+      </div>
+
+    </div>
+
+    <div class="home">
+      <a href="index.html" class="btn">🏠 Back to Home</a>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 My-Seba — All Rights Reserved
+  </footer>
+
+  <script>
+    function searchServices() {
+      const input = document
+        .getElementById("searchBox")
+        .value
+        .toLowerCase();
+
+      const cards = document.querySelectorAll(".service-card");
+
+      cards.forEach(function(card) {
+        const text = card.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
